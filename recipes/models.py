@@ -35,7 +35,7 @@ class Recipe(models.Model):
         self.save()
 
     def preview(self):
-        return self.content[:125] + '...'
+        return self.ingredients[:125] + '...'
 
     def get_absolute_url(self):  # добавим абсолютный путь чтобы после создания нас перебрасывало на страницу с новостью
         return f'/posts/{self.id}'
