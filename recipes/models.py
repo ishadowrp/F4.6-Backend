@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
+    description = models.TextField()
+    photo = models.ImageField(upload_to='img', max_length=254, blank=True)
 
     def __str__(self):
         return f'{self.name}'
@@ -16,9 +18,9 @@ class Recipe(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
     ingredients = models.TextField()
     cooking_method = models.TextField()
-    photo1 = models.ImageField(upload_to='img', max_length=254, blank=True, null=True)
-    photo2 = models.ImageField(upload_to='img', max_length=254, blank=True, null=True)
-    photo3 = models.ImageField(upload_to='img', max_length=254, blank=True, null=True)
+    photo1 = models.ImageField(upload_to='img', max_length=254, blank=True)
+    photo2 = models.ImageField(upload_to='img', max_length=254, blank=True)
+    photo3 = models.ImageField(upload_to='img', max_length=254, blank=True)
     rating = models.IntegerField(default=0)
 
     @property
