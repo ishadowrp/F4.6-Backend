@@ -26,14 +26,6 @@ class Recipe(models.Model):
         list_of_category = [category.name for category in self.category.all()]
         return list_of_category
 
-    def like(self):
-        self.rating += 1
-        self.save()
-
-    def dislike(self):
-        self.rating -= 1
-        self.save()
-
     def preview(self):
         return self.ingredients[:125] + '...'
 
