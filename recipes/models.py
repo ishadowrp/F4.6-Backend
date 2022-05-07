@@ -15,6 +15,7 @@ class Recipe(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category, through='RecipeCategory')
     title = models.CharField(max_length=255)
+    description = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
     ingredients = models.TextField()
     cooking_method = models.TextField()
